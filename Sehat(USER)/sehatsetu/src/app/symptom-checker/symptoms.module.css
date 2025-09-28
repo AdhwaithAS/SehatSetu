@@ -1,0 +1,155 @@
+
+/* Layout */
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.chatHeader {
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: center;
+}
+
+.chatBox {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Messages */
+.botMessage,
+.userMessage {
+  max-width: 80%;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.botMessage {
+  background: var(--bot-bg);
+  align-self: flex-start;
+}
+
+.userMessage {
+  background: var(--user-bg);
+  color: var(--user-text);
+  align-self: flex-end;
+}
+
+/* Images inside chat */
+.chatImage {
+  max-width: 180px;
+  max-height: 180px;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+/* Image Preview before sending */
+.previewBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid var(--border);
+  background: #f9f9f9;
+}
+
+.previewBox img {
+  max-height: 60px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.previewBox button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+}
+
+.previewBox button:hover {
+  color: red;
+}
+
+/* Input area */
+.chatInput {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-top: 1px solid var(--border);
+  background: #fff;
+  gap: 0.5rem;
+}
+
+.chatInput input[type="text"] {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.6rem 1rem;
+  font-size: 15px;
+}
+
+.chatInput button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.uploadBtn {
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--border);
+  background: #f9f9f9;
+  justify-content: center;
+}
+
+.actionBtn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.actionBtn:active {
+  transform: translateY(0);
+}

@@ -1,0 +1,249 @@
+.header {
+  background: var(--card);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+.formCard {
+  background: var(--card);
+}
+
+.passwordHints {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+.passwordHints span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+}
+.ok {
+  background: color-mix(in oklab, var(--accent) 15%, white);
+  color: var(--accent-600);
+  border-color: color-mix(in oklab, var(--accent) 40%, white);
+}
+.bad {
+  background: #f8fafc;
+  color: var(--muted);
+}
+
+.submitBtn {
+  background: var(--accent);
+  color: white;
+  border: 1px solid var(--accent-600);
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+}
+.submitBtn:hover {
+  background: var(--accent-600);
+}
+
+/* Popup Styles */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.popup {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: popupSlideIn 0.3s ease-out;
+}
+
+@keyframes popupSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popupIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+}
+
+.popup.success .popupIcon {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.popup.error .popupIcon {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.popupTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.popup.success .popupTitle {
+  color: #16a34a;
+}
+
+.popup.error .popupTitle {
+  color: #dc2626;
+}
+
+.popupMessage {
+  margin: 0 0 1.5rem 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.popupButton {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.popupButton:hover {
+  background: #2563eb;
+}
+
+.popup.success .popupButton {
+  background: #16a34a;
+}
+
+.popup.success .popupButton:hover {
+  background: #15803d;
+}
+
+.popup.error .popupButton {
+  background: #dc2626;
+}
+
+.popup.error .popupButton:hover {
+  background: #b91c1c;
+}
+
+/* Profile Picture Upload Styles */
+.dpUploadContainer {
+  margin-bottom: 1rem;
+}
+
+.uploadArea {
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadArea:hover {
+  border-color: var(--accent);
+  background: #f0f9ff;
+}
+
+.dragActive {
+  border-color: var(--accent) !important;
+  background: #f0f9ff !important;
+  border-style: solid !important;
+}
+
+.uploadIcon {
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+
+.uploadArea:hover .uploadIcon {
+  color: var(--accent);
+}
+
+.uploadText {
+  margin: 0.5rem 0;
+  font-weight: 500;
+  color: #374151;
+}
+
+.uploadHint {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.dpPreview {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dpImage {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.removeDp {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(220, 38, 38, 0.9);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.removeDp:hover {
+  background: #dc2626;
+}
+

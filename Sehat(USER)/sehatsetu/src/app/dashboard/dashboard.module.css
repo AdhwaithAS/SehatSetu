@@ -1,0 +1,190 @@
+/* Mobile-first dashboard styles using CSS variables from globals.css */
+
+.wrapper {
+  min-height: 100dvh;
+  background: var(--background);
+}
+
+.header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.flagBand {
+  width: 24px;
+  height: 12px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to bottom,
+    #ff9933 0 33%, /* saffron */
+    #ffffff 33% 66%,
+    #138808 66% 100% /* green */
+  );
+  box-shadow: var(--shadow);
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.cardButton {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.cardButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--accent);
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 16%, white);
+  color: var(--accent);
+}
+
+.cardTitle {
+  color: var(--foreground);
+}
+
+.cardDesc {
+  color: var(--muted);
+}
+
+.notice {
+  margin-bottom: 24px;
+}
+
+/* Emergency Modal Styles */
+.emergencyModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 24px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.emergencyIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.countdown {
+  margin: 20px 0;
+  padding: 16px;
+  background: color-mix(in srgb, var(--accent) 10%, white);
+  border-radius: 12px;
+  border: 2px solid var(--accent);
+}
+
+.countdownNumber {
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--accent);
+  line-height: 1;
+  animation: countdownPulse 1s ease-in-out infinite;
+}
+
+@keyframes countdownPulse {
+  0%, 100% {
+    transform: scale(1);
+    color: var(--accent);
+  }
+  50% {
+    transform: scale(1.1);
+    color: #dc3545;
+  }
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.btn-outline-danger {
+  background: transparent;
+  color: #dc3545;
+  border: 2px solid #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding-bottom: 24px;
+  }
+  
+  .modalContent {
+    padding: 40px 32px;
+  }
+}
+
+

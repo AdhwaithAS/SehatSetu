@@ -1,0 +1,59 @@
+.wrapper {
+  min-height: 100dvh;
+  background: var(--background);
+}
+
+.header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.flagBand {
+  width: 24px;
+  height: 12px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to bottom,
+    #ff9933 0 33%,
+    #ffffff 33% 66%,
+    #138808 66% 100%
+  );
+  box-shadow: var(--shadow);
+}
+
+.recordCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.recordCard:hover {
+  transform: translateY(-2px);
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--accent);
+}
+
+.cardTitle {
+  color: var(--foreground);
+}
+
+.cardMeta {
+  color: var(--muted);
+}
+
+.datePill {
+  background-color: color-mix(in srgb, var(--accent) 12%, white);
+  color: var(--accent-600);
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding-bottom: 24px;
+  }
+}
+
+
+

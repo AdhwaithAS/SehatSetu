@@ -1,0 +1,109 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.logo {
+  border-radius: 6px;
+}
+
+.appName {
+  font-size: 1rem;
+}
+
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menuIcon {
+  position: relative;
+  width: 20px;
+  height: 2px;
+  background: var(--foreground);
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: var(--foreground);
+}
+
+.menuIcon::before { top: -6px; }
+.menuIcon::after  { top:  6px; }
+
+.nav {
+  display: none;
+}
+
+.nav.open {
+  display: block;
+}
+
+.navList {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.navLink {
+  display: block;
+  text-decoration: none;
+  color: var(--foreground);
+  padding: 0.5rem 0.25rem;
+  border-radius: 6px;
+}
+
+.navLink:hover {
+  background: var(--background);
+  color: var(--accent);
+}
+
+@media (min-width: 768px) {
+  .menuButton { display: none; }
+  .nav { display: block; }
+  .navList {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+  }
+}
+
+
+

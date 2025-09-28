@@ -1,0 +1,404 @@
+/* Video Call Container */
+.videoCallContainer {
+  height: 100vh;
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
+
+.callInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.callTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.callDuration {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.connectionStatus {
+  font-size: 0.75rem;
+  color: var(--gov-info);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.backButton {
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.backButton:hover {
+  background: var(--accent-600);
+  color: white;
+  text-decoration: none;
+}
+
+/* Video Grid */
+.videoGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--gov-light-bg);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Fullscreen states */
+.videoGrid.userFullscreen {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.videoContainer {
+  background: var(--card);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
+  min-height: 300px;
+}
+
+.remoteVideo {
+  /* Main video (doctor) - inherits base videoContainer styles */
+  position: relative;
+}
+
+.remoteVideoSmall {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 200px;
+  height: 150px;
+  z-index: 10;
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.localVideo {
+  /* User's video */
+  border: 2px solid var(--accent);
+  position: relative;
+}
+
+.localVideoFull {
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--gov-light-bg);
+}
+
+.videoPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--gov-primary), var(--accent));
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.videoFeed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.doctorAvatar,
+.userAvatar {
+  font-size: 4rem;
+  opacity: 0.9;
+}
+
+.participantName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.videoOff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--muted);
+}
+
+.offIcon {
+  font-size: 3rem;
+  opacity: 0.7;
+}
+
+.offText {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Fullscreen Toggle Button */
+.fullscreenToggle {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+}
+
+.fullscreenToggle:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+/* Control Panel */
+.controlPanel {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.controlButton {
+  width: 3.5rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--gov-secondary);
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.controlButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.controlButtonActive {
+  background: var(--gov-error);
+}
+
+.endCallButton {
+  background: var(--gov-error);
+  font-size: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+.endCallButton:hover {
+  background: #b91c1c;
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Call Status */
+.callStatus {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.statusBadge {
+  background: var(--gov-warning);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .videoGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .videoGrid.userFullscreen {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  .remoteVideoSmall {
+    width: 150px;
+    height: 120px;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  
+  .header {
+    padding: 0.75rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .callInfo {
+    width: 100%;
+  }
+  
+  .backButton {
+    align-self: flex-end;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .controlPanel {
+    padding: 1rem 0.75rem;
+  }
+  
+  .controls {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .controlButton {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .endCallButton {
+    width: 3.25rem;
+    height: 3.25rem;
+    font-size: 1.1rem;
+  }
+  
+  
+  .videoCallContainer {
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .fullscreenToggle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .callTitle {
+    font-size: 0.9rem;
+  }
+  
+  .callDuration {
+    font-size: 0.7rem;
+  }
+  
+  .backButton {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .doctorAvatar,
+  .userAvatar {
+    font-size: 2.5rem;
+  }
+  
+  .participantName {
+    font-size: 0.9rem;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .remoteVideoSmall {
+    width: 120px;
+    height: 90px;
+  }
+  
+  .controlButton {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .endCallButton {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1rem;
+  }
+  
+  .fullscreenToggle {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .videoContainer {
+    min-height: 200px;
+  }
+}
+

@@ -1,0 +1,91 @@
+.wrapper {
+  min-height: 100dvh;
+  background: var(--background);
+}
+
+.header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.flagBand {
+  width: 24px;
+  height: 12px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to bottom,
+    #ff9933 0 33%,
+    #ffffff 33% 66%,
+    #138808 66% 100%
+  );
+  box-shadow: var(--shadow);
+}
+
+.detailsCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.field {
+  color: var(--foreground);
+}
+
+.label {
+  display: inline-block;
+  min-width: 110px;
+  color: var(--muted);
+}
+
+.medList :global(.list-group-item) {
+  border-color: var(--border);
+}
+
+.prescriptionCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.prescriptionButton {
+  display: block;
+  border: none;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+}
+
+.prescriptionImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.fullscreenOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: grid;
+  place-items: center;
+  z-index: 1050;
+}
+
+.closeButton {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+
+
